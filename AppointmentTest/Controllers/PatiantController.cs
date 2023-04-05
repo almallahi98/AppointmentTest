@@ -1,5 +1,6 @@
 ﻿using AppointmentTest.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppointmentTest.Controllers
 {
@@ -24,6 +25,13 @@ namespace AppointmentTest.Controllers
                 return Ok("patient added: " + e.Entity.PatientId);
             }
             return BadRequest();
+        }
+
+        [HttpGet("/getAddPatantByDocId/{id}")]
+        public async Task<IActionResult> getAddPatantByDocId(Guid id) 
+        {
+            var li=await _context.Appointments.Where(r => r.DocId==id).ToListAsync();
+            return Ok(li);
         }
     }
 }

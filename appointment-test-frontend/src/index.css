@@ -9,24 +9,25 @@
         scroll-behavior: smooth;
     }
     p{
-        @apply font-Ubuntu text-blue-prim;
+        @apply font-Ubuntu font-semibold ;
     }
     label{
-        @apply font-Ubuntu text-blue-prim mx-2 ;
+        @apply font-Ubuntu font-semibold text-lg mx-2 ;
     }
     
-    textarea,input{
-        @apply rounded border-2 border-blue-prim focus:outline-none
-         bg-gray-800 text-lg font-bold text-white font-Ubuntu;
+    textarea,input,select{
+        @apply rounded border-2 border-green-600 focus:outline-none
+        text-lg font-bold text-black px-2 font-Ubuntu;
     }
     button.btn-send{
-        @apply rounded bg-gradient-to-b from-blue-prim to-gray-dark-prime text-lg px-8 text-white;
+        @apply rounded bg-gradient-to-b from-green-400 to-gray-dark-prime text-lg px-8 ml-4 text-black font-semibold shadow;
     }
     button.btn-clear{
-        @apply rounded bg-gradient-to-b from-red-400 to-gray-dark-prime text-lg px-8 text-white;
+        @apply rounded bg-gradient-to-b from-red-400 to-red-900 text-lg px-8 text-black font-semibold shadow;
     }
 
-    /* button.btn-send:hover{
-        @apply ;
-    } */
+    div.cont{
+        @apply flex flex-col items-center gap-2 bg-gray-100 
+        py-4 mx-14 border-2 border-green-500 rounded;
+    }
 }

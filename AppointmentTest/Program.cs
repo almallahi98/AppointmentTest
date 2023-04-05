@@ -17,7 +17,7 @@ builder.Services.AddDbContext<APOINTContext>(opt => {
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy(name: "cors", p => {
-        p.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader().AllowCredentials();
+        p.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader();
     });
 });
 var app = builder.Build();

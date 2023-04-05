@@ -27,8 +27,9 @@ function AddingDoctor() {
     
   return (
     <>
-        <div className='bg-green-300 flex flex-col items-center gap-2 pt-10 h-screen'>
-            <form className='flex justify-center items-center w-2/4 py-2 bg-gray-100'>
+        <div className='pt-10 h-screen'>
+            <div className='cont'>
+            <form className='flex justify-center items-center w-3/4 py-2'>
                 <label htmlFor='dname'>Doctor name</label>
                 <input 
                 id='dname'
@@ -37,15 +38,17 @@ function AddingDoctor() {
                 onChange={e=>{
                     docName.current=e.target.value;
                 }}/>
-                <input type='button' 
-                value={'add'}
-                className='block w-40 bg-green-600 rounded border-0 m-1'
+                <button
+                className='btn-send'
                 onClick={e=>{
                     e.preventDefault();
                     AddDoctor(docName.current).then(res=>{
-                        getAllDoctorsData()
+                        if(res.status===200)
+                        {
+                            getAllDoctorsData();
+                        }
                     });
-                }}/>
+                }}>add</button>
             </form>
             {
                 data.map((elm:any,i)=>{
@@ -54,6 +57,7 @@ function AddingDoctor() {
                     )
                 })
             }
+            </div>
         </div>
     </>
   )
