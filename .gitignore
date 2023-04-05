@@ -4,7 +4,7 @@
 appointment-test-frontend/node_modules
 appointment-test-frontend/.pnp
 .pnp.js
-/.gitignore
+.gitignore
 
 # testing
 appointment-test-frontend/coverage
