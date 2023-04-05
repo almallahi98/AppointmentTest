@@ -15,13 +15,13 @@ namespace AppointmentTest.Controllers
         {
             _context = context;
         }
-        [HttpGet("getalldoc")]
+        [HttpGet]
         public async Task<IEnumerable<Doctor>> GetAllDoctors()
         {
             return await _context.Doctors.ToListAsync();
         }
 
-        [HttpGet("{name}")]
+        [HttpGet("addDoctor/{name}")]
         public async Task<IActionResult> AddDoctor(string name)
         {
             var x=await _context.Doctors.AddAsync(new Doctor { DoctorName = name,DoctorId=Guid.NewGuid() });
