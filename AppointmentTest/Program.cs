@@ -14,6 +14,12 @@ builder.Services.AddDbContext<APOINTContext>(opt => {
         builder.Configuration.GetConnectionString("Defult")
     );
 });
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name: "cors", p => {
+        p.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader().AllowCredentials();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,7 +28,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("cors");
 app.UseAuthorization();
 
 app.MapControllers();
